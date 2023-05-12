@@ -1,0 +1,42 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="custtile.controller.Cd-Mapping" displayBlock="true">
+    <Page xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="page" title="{i18n>title}" showNavButton="true" cd:w5g.dt.context="/Cd_customizing">
+        <content>
+            <GenericTile id="tile0" cd:w5g.dt.context="/Cd_customizing">
+            <tileContent>
+                <TileContent id="content2">
+                    <content>
+                        <Link xmlns="sap.m" href="https://port4004-workspaces-ws-49gqn.us10.trial.applicationstudio.cloud.sap/msg.global.spm.customizing/webapp/index.html" text="Cd Customizing" id="link2"/>
+                    </content>
+                </TileContent>
+            </tileContent>
+            </GenericTile>
+            <GenericTile id="tile1">
+                <tileContent>
+                    <TileContent id="content3">
+                        <content>
+                            <Link xmlns="sap.m" href="https://port4004-workspaces-ws-49gqn.us10.trial.applicationstudio.cloud.sap/spm.bp.mapping/webapp/index.html" text="BP Mapping" id="link3"/>
+                        </content>
+                    </TileContent>
+                </tileContent>
+            </GenericTile>
+            <GenericTile id="tile0_1683812774609">
+                <tileContent>
+                    <TileContent id="content0">
+                        <content>
+                            <Link xmlns="sap.m" href="https://port4004-workspaces-ws-49gqn.us10.trial.applicationstudio.cloud.sap/spm.cd.mapping/webapp/index.html" text="Cd Mapping" id="link0"/>
+                        </content>
+                    </TileContent>
+                </tileContent>
+            </GenericTile>
+            <GenericTile id="tile1_1683812926477">
+                <tileContent>
+                    <TileContent id="content1">
+                        <content>
+                            <Link xmlns="sap.m" text="IO Mapping" id="link1" href="https://port4004-workspaces-ws-49gqn.us10.trial.applicationstudio.cloud.sap/spm.io.mapping/webapp/index.html"/>
+                        </content>
+                    </TileContent>
+                </tileContent>
+            </GenericTile>
+        </content>
+    </Page>
+</mvc:View>

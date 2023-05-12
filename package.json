@@ -1,0 +1,46 @@
+{
+  "name": "SPM4CD_BTPCUST",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^6",
+    "express": "^4",
+    "hdb": "^0.19.5"
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "^1.108.4",
+    "rimraf": "^3.0.2",
+    "sqlite3": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-msg.global.spm.customizing": "cds watch --open msg.global.spm.customizing/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-spm.cd.mapping": "cds watch --open spm.cd.mapping/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy SPM4CD_BTPCUST --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-spm.bp.mapping": "cds watch --open spm.bp.mapping/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-spm.io.mapping": "cds watch --open spm.io.mapping/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-cust-tile": "cds watch --open cust-tile/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/msg.global.spm.customizing",
+    "app/spm.cd.mapping",
+    "app/spm.bp.mapping",
+    "app/spm.io.mapping",
+    "app/cust-tile"
+  ],
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db.sqlite"
+        }
+      }
+    }
+  }
+}

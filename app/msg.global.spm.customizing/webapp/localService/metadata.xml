@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="srv.Cd_Local_MapService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Cd_Local_Mapping" EntityType="srv.Cd_Local_MapService.Cd_Local_Mapping"/>
+            </EntityContainer>
+            <EntityType Name="Cd_Local_Mapping">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="TenantId" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CommissionEG" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CommissionEC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MainTransaction" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SubTransaction" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DocumentType" Type="Edm.String" MaxLength="5"/>
+                <Property Name="DocumentCategory" Type="Edm.String" MaxLength="5"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>id</PropertyPath>
+                        <PropertyPath>CommissionEG</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TenantId"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CommissionEG"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CommissionEC"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MainTransaction"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SubTransaction"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DocumentType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DocumentCategory"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyCode"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/id">
+                <Annotation Term="Common.Label" String="ID"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/TenantId">
+                <Annotation Term="Common.Label" String="Tenant"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/CommissionEG">
+                <Annotation Term="Common.Label" String="CommissionEG"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/CommissionEC">
+                <Annotation Term="Common.Label" String="CommissionEC"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/MainTransaction">
+                <Annotation Term="Common.Label" String="MainTransaction"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/SubTransaction">
+                <Annotation Term="Common.Label" String="SubTransaction"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/DocumentType">
+                <Annotation Term="Common.Label" String="DocumentType "/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/DocumentCategory">
+                <Annotation Term="Common.Label" String="DocumentCategory"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_Local_MapService.Cd_Local_Mapping/CompanyCode">
+                <Annotation Term="Common.Label" String="CompanyCode"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="srv.Cd_io_Mapservice" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="io_mapping" EntityType="srv.Cd_io_Mapservice.io_mapping"/>
+            </EntityContainer>
+            <EntityType Name="io_mapping">
+                <Key>
+                    <PropertyRef Name="id"/>
+                    <PropertyRef Name="io"/>
+                    <PropertyRef Name="posid"/>
+                </Key>
+                <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="io" Type="Edm.String" MaxLength="20" Nullable="false"/>
+                <Property Name="posid" Type="Edm.String" Nullable="false"/>
+                <Property Name="posval" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="srv.Cd_io_Mapservice.io_mapping">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>id</PropertyPath>
+                        <PropertyPath>io</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="io"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="posid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="posval"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="srv.Cd_io_Mapservice.io_mapping/id">
+                <Annotation Term="Common.Label" String="ID"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_io_Mapservice.io_mapping/io">
+                <Annotation Term="Common.Label" String="Insurance Object"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_io_Mapservice.io_mapping/posid">
+                <Annotation Term="Common.Label" String="Position Key"/>
+            </Annotations>
+            <Annotations Target="srv.Cd_io_Mapservice.io_mapping/posval">
+                <Annotation Term="Common.Label" String="Position ID"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

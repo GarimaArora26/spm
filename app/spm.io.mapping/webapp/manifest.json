@@ -1,0 +1,137 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "spm.io.mapping.spm.io.mapping",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.9.4",
+      "toolsId": "3a86013e-9454-4503-8a93-cc2de2d3f1ac"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/cd-io-mapservice/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.113.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "spm.io.mapping.spm.io.mapping.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "io_mappingList",
+          "target": "io_mappingList"
+        },
+        {
+          "pattern": "io_mapping({key}):?query:",
+          "name": "io_mappingObjectPage",
+          "target": "io_mappingObjectPage"
+        }
+      ],
+      "targets": {
+        "io_mappingList": {
+          "type": "Component",
+          "id": "io_mappingList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "io_mapping",
+              "variantManagement": "Page",
+              "navigation": {
+                "io_mapping": {
+                  "detail": {
+                    "route": "io_mappingObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "io_mappingObjectPage": {
+          "type": "Component",
+          "id": "io_mappingObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "entitySet": "io_mapping"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
